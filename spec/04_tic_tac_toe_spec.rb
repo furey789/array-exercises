@@ -80,30 +80,9 @@ describe "Tic Tac Toe, in arrays" do
       wx << num_xy_downdiag
       wx << num_xy_updiag
 
-      wo=[]
-      num_o_in_rows=[]
-      o_coords.map { |c| num_o_in_rows << c[0] }
-      (0..2).map{ |id| wo<<num_o_in_rows.count(id)}
-      num_o_in_cols=[]
-      o_coords.map { |c| num_o_in_cols << c[1] }
-      (0..2).map{ |id| wo<<num_o_in_cols.count(id)}
-
-      num_xy_downdiag=0
-      num_xy_updiag=0
-      o_coords.each do |c|
-        if c==[0,0] || c==[1,1] || c==[2,2]
-          num_xy_downdiag+=1
-        end
-        if c==[2,0] || c==[1,1] || c==[0,2]
-          num_xy_updiag+=1
-        end
-      end
-      wo << num_xy_downdiag
-      wo << num_xy_updiag
-
       if wx.count(3)==1
         winner='X'
-      elsif wo.count(3)==1
+      elsif wx.count(3)==0
         winner = 'O'
       else
         winner = 'None'
